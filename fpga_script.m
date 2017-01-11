@@ -1,6 +1,6 @@
 
 clear;
-s=serial('com3');
+s=serial('com5');
 s.Baudrate = 9600;
 s.DataBits = 8;
 s.FlowControl = 'hardware';
