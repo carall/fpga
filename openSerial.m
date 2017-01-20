@@ -1,4 +1,4 @@
-function serialName = OpenSerial( comName )
+function serialName = openSerial( comName )
 % OPENSERIAL open and config the serial
 %   serialName   like com5...
 disp( 'open and configure serial...' );

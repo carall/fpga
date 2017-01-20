@@ -1,4 +1,4 @@
-function SetTime( serialName, time )
+function setTime( serialName, time )
 %SETTIME set count time
 %   serialName     serial variable name
 %   time           count time (seconds)
