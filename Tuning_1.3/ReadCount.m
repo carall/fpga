@@ -6,8 +6,9 @@ disp('开始读取数据');
 fid = fopen(path ,'a');
 fprintf(fid,'开始读取数据时间：%s\r\n', datestr(now));
 temp = fread(serialName,1,'uint32');
-countVal = zeros(1,16);
 tic;
+countVal = zeros(1,16);
+loopCount = 0;
 while temp<2^31+2^30 %read one counter data in one loop
     countValLow = dec2bin(temp,32);
     countValHigh = dec2bin(fread(serialName,1,'uint32'),32);
@@ -22,8 +23,8 @@ while temp<2^31+2^30 %read one counter data in one loop
     if address == 15
         if toc > writePeriod - 1 && toc < writePeriod + 1
             tic;
-            temp = datestr(now);
-            fprintf(fid, '%s\t', temp(13:20));
+            time = datestr(now);
+            fprintf(fid, '%s\t', time(13:20));
             for i = 1 : 16
                 fprintf(fid, '%d\t', countVal(i));
             end
