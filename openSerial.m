@@ -5,7 +5,7 @@ disp( 'open and configure serial...' );
 serialName = serial( comName );
 serialName.Baudrate = 9600;
 serialName.DataBits = 8;
-serialName.FlowControl = 'hardware';
+% serialName.FlowControl = 'hardware';
 serialName.Parity = 'odd';
 serialName.StopBits = 1;
 serialName.Timeout = 10;

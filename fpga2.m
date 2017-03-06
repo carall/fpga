@@ -1,11 +1,11 @@
-function countTotal = fpga( time, comName )
+function countTotal = fpga2( time, fineDelay )
 % open serial
-s = openSerial( comName );
+s = openSerial( 'com5' );
 
 % set input channel delay
 delayInfo = zeros( 2, 16 );
 % delayInfo(1,i) is the 1st 16 bits which is delay num,  and i is the input channel num;
-delayInfo( 1,2 ) = 4 * 2^8 + 290;
+delayInfo( 1,2 ) = 4 * 2^8 + 290 + fineDelay;
 % delayInfo(2,i) is the 2nd 16 bits which is selection information, default 0 not select, and i is the input channel num;
 delayInfo( 2,1 ) = 1;
 delayInfo( 2,2 ) = 1;
@@ -31,7 +31,7 @@ assert((str2double(cfgDone(1)) == 1),'Configure failed!');
 disp('configure done!');
 
 %read data
-[ countTotal, countDone ] = readCount( s, 3 );
+[ countTotal, countDone ] = readCount2( s, 3, fineDelay );
 assert((countDone >= 2^31+2^30),'Reading counting done failed!');
 fclose(s);
 end
