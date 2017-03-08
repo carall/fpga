@@ -5,7 +5,7 @@ s = openSerial( comName );
 % set input channel delay
 delayInfo = zeros( 2, 16 );
 % delayInfo(1,i) is the 1st 16 bits which is delay num,  and i is the input channel num;
-delayInfo( 1,2 ) = 4 * 2^8 + 290;
+delayInfo( 1,2 ) = 7 * 2^8 + 110;
 % delayInfo(2,i) is the 2nd 16 bits which is selection information, default 0 not select, and i is the input channel num;
 delayInfo( 2,1 ) = 1;
 delayInfo( 2,2 ) = 1;
