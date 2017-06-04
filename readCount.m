@@ -1,6 +1,7 @@
 function [ countTotal,countDone ] = readCount( serialName, counterNum )
 % READCOUNT read count value from FPGA
 %   serialName     serial variable name
+%   counterNum     total counter numbers
 disp('read data...');
 fid = fopen('F:/LabVIEW Data/cnt.txt','a+');
 fprintf(fid, '\n');
